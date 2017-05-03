@@ -1,23 +1,32 @@
 <h1>Eat Da Burger!</h1>
 
 {{#each burgers}}
-<form class="create-update-form" method="POST" action=/?_method=PUT>
-	<ul>
-	  	<li>
-	  		<input type="hidden" name="id" value="{{this.id}}">
+	{{#if devoured}}
+		<div class="devoured" style="background-color: red;">
+			<input type="hidden" name="id" value="{{this.id}}">
 			<p><span class="label" name="burger-name">Burger:</span> {{this.burger_name}}</p>
 			<p><span class="label" name="devoured">Devoured:</span> {{this.devoured}}</p>
-		  	<button type="submit">Devour!</button>
-	  	</li>
-	</ul>
-</form>
+		</div>
+	{{else}}
+		<div class="not devoured" style="background-color: green;">
+			<form class="create-update-form" method="POST" action=/?_method=PUT>
+				<ul>
+				  	<li>
+				  		<input type="hidden" name="id" value="{{this.id}}">
+						<p><span class="label" name="burger-name">Burger:</span> {{this.burger_name}}</p>
+						<p><span class="label" name="devoured">Devoured:</span> {{this.devoured}}</p>
+					  	<button type="submit">Devour!</button>
+				  	</li>
+				</ul>
+			</form>
+		</div>
+	{{/if}}
 {{/each}}
 
 <form class="create-form" action="/" method="POST">
-
-  <div class="form-group">
-    <label for="burg">Burger:</label>
-    <input type="text" id="burg" name="burger">
-  </div>
-  <button type="submit">Add Quote</button>
+	<div class="form-group">
+		<label for="burg">Burger:</label>
+		<input type="text" id="burg" name="burger">
+	</div>
+	<button type="submit">Add Burger</button>
 </form>
