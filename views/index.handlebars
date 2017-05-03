@@ -2,13 +2,13 @@
 
 {{#each burgers}}
 	{{#if devoured}}
-		<div class="devoured" style="background-color: red;">
+		<div class="devoured">
 			<input type="hidden" name="id" value="{{this.id}}">
 			<p><span class="label" name="burger-name">Burger:</span> {{this.burger_name}}</p>
 			<p><span class="label" name="devoured">Devoured:</span> {{this.devoured}}</p>
 		</div>
 	{{else}}
-		<div class="not devoured" style="background-color: green;">
+		<div class="not-devoured">
 			<form class="create-update-form" method="POST" action=/?_method=PUT>
 				<ul>
 				  	<li>

@@ -8,13 +8,13 @@ var burger = {
 	},
 
 	new: function(objCol, objData, cb) {
-		orm.insertOne('burgers', objData, function(res) {
+		orm.insertOne('burgers', objCol, objData, function(res) {
 			cb(res);
 		});
 	},
 
-	devour: function(obj, condition, cb) {
-		orm.updateOne('burgers', obj, condition, function(res) {
+	devour: function(objCol, objData, conditionCol, conditionData, cb) {
+		orm.updateOne('burgers', objCol, objData, conditionCol, conditionData, function(res) {
 			cb(res);
 		});
 	}
