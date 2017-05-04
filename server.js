@@ -21,8 +21,6 @@ app.use(express.static('./public'));
  
 require("./controllers/burger_controller.js")(app);
 
-app.set('port', process.env.PORT);
-
-app.listen(app.get('port'), () => {
-    console.log(`Express app listening on ${app.get('port')}`);
+app.listen(PORT, function() {
+	console.log("App listening on PORT " + PORT);
 });
