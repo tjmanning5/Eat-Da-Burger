@@ -6,9 +6,8 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 
-app.use(bodyParser.urlencoded({
-	extended: false
-}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.use(methodOverride("_method"));
 var exphbs = require("express-handlebars");
@@ -22,6 +21,8 @@ app.use(express.static('./public'));
  
 require("./controllers/burger_controller.js")(app);
 
-app.listen(PORT, function() {
-	console.log("App listening on PORT " + PORT);
+app.set('port', process.env.PORT);
+
+app.listen(app.get('port'), () => {
+    console.log(`Express app listening on ${app.get('port')}`);
 });
