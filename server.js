@@ -5,7 +5,6 @@ var methodOverride = require("method-override");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-app.use(express.static(process.cwd() + "/public"));
 
 app.use(bodyParser.urlencoded({
 	extended: false
@@ -19,6 +18,8 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
+app.use(express.static('./public'));
+ 
 require("./controllers/burger_controller.js")(app);
 
 app.listen(PORT, function() {
