@@ -32,7 +32,7 @@
                     <input id="burg" name="burger" type="text">
                     </input>
                 </div>
-                <button class="waves-effect waves-light btn grey lighten-4 grey-text text-darken-4" type="submit">
+                <button class="waves-effect waves-light btn" type="submit">
                     Add Burger
                 </button>
             </form>
@@ -61,7 +61,7 @@
                     </p>
                 </div>
                 <div class="col s6 submit-parent">
-                    <button class="secondary-content waves-effect waves-light btn grey lighten-4 grey-text text-darken-4" type="submit">
+                    <button class="secondary-content waves-effect waves-light btn" type="submit">
                         Devour!
                     </button>
                 </div>
@@ -76,6 +76,10 @@
 	$('.not-devoured').appendTo($('.not-devoured-group'));
 </script>
 <style>
+	body {
+		background-color: #f8f0b9;
+	}
+
     .title {
 		margin-top: 70px;
 		font-family: 'Permanent Marker', cursive;
@@ -99,8 +103,13 @@
 		margin: 0px;
 	}
 
+	li.collection-item.devoured, li.collection-item.not-devoured {
+		background-color: #fcf7da;
+	}
+
 	.devoured-group {
 		text-decoration: line-through;
+		color: grey;
 	}
 	/*.secondary-content {
 		margin-top: 15px;
